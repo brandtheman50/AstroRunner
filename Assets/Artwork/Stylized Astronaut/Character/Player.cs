@@ -3,33 +3,34 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-		private Animator anim;
-		private CharacterController controller;
-
-		public float speed = 600.0f;
-		public float turnSpeed = 400.0f;
-		private Vector3 moveDirection = Vector3.zero;
-		public float gravity = 20.0f;
+	private float speed = 3f;
+	private Vector3 moveDir;
 
 		void Start () {
-			controller = GetComponent <CharacterController>();
-			anim = gameObject.GetComponentInChildren<Animator>();
+			
+			GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 20);
+			StartCoroutine(stopXMovement());
+
 		}
 
-		void Update (){
-			if (Input.GetKey ("w")) {
-				anim.SetInteger ("AnimationPar", 1);
-			}  else {
-				anim.SetInteger ("AnimationPar", 0);
-			}
-
-			if(controller.isGrounded){
-				moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
-			}
-
-			float turn = Input.GetAxis("Horizontal");
-			transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
-			controller.Move(moveDirection * Time.deltaTime);
-			moveDirection.y -= gravity * Time.deltaTime;
+		void Update () {
+		moveDir.x = Input.GetAxisRaw("Horizontal");
+		if (Input.GetKey("a"))
+        {
+			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + moveDir * speed * Time.fixedDeltaTime);
+			StartCoroutine(stopXMovement());
 		}
+        if (Input.GetKey("d"))
+        {
+			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + moveDir *speed * Time.fixedDeltaTime);
+			StartCoroutine(stopXMovement());
+		}
+
+		}
+
+	IEnumerator stopXMovement()
+    {
+		yield return new WaitForSeconds(1);
+		GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 20);
+	}
 }
