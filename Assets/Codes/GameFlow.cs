@@ -9,6 +9,10 @@ public class GameFlow : MonoBehaviour
     public Transform fence;
     private Vector3 nextFence;
     private int randx;
+    public Transform pole;
+    private Vector3 nextPole;
+    public Transform tube;
+    private Vector3 nextTube;
 
     void Start()
     {
@@ -33,6 +37,20 @@ public class GameFlow : MonoBehaviour
         Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
         Instantiate(fence, nextFence, fence.rotation);
         nextTileSpawn.z += 50;
+
+        randx = Random.Range(-2, 4);
+        nextPole.z = nextTileSpawn.z-20;
+        nextPole.y = 0f;
+        nextPole.x = randx;
+        Instantiate(pole, nextPole, pole.rotation);
+
+        
+
+        randx = Random.Range(-2, 4);
+        nextTube.z = nextTileSpawn.z - 30;
+        nextTube.y = 0f;
+        nextTube.x = randx;
+        Instantiate(tube, nextTube, tube.rotation);
         StartCoroutine(spawnTile());
     }
    
