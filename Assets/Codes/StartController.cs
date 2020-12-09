@@ -20,4 +20,14 @@ public class StartController : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+    public void titleSceneButton()
+    {
+        StartCoroutine(DelaySceneLoad());
+        IEnumerator DelaySceneLoad()
+        {
+            yield return new WaitForSeconds(3f);
+            SceneManager.LoadScene(1);
+        }
+    }
 }
