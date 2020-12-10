@@ -33,6 +33,8 @@ public class GameFlow : MonoBehaviour
     [SerializeField]
     Text YourScoreText;
     [SerializeField]
+    Text HighScoreText;
+    [SerializeField]
     Text OxygenLeftText;
     [SerializeField]
     Text timeInventoryNum;
@@ -42,6 +44,8 @@ public class GameFlow : MonoBehaviour
     public static int o2 = 100;
 
     public static int yourScore = 0;
+
+    public static int highScore = 0;
 
     public static bool gameStopped;
 
