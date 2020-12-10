@@ -45,7 +45,7 @@ public class GameFlow : MonoBehaviour
 
     public static int yourScore = 0;
 
-    public static int highScore = 0;
+    public static int highScore;
 
     public static bool gameStopped;
 
@@ -65,6 +65,8 @@ public class GameFlow : MonoBehaviour
 
         gameStopped = false;
 
+        highScore = PlayerPrefs.GetInt("highScore");
+
         nextTileSpawn.z = 40;
         
         
@@ -81,6 +83,7 @@ public class GameFlow : MonoBehaviour
 
 
         YourScoreText.text = "Your Score: " + yourScore;
+        HighScoreText.text = "High Score: " + highScore;
         OxygenLeftText.text = "O2: " + o2 + "%";
         timeInventoryNum.text = "x" + timePickUp;
         if (o2 == 30 || o2 == 20 || o2 == 10)
@@ -163,6 +166,8 @@ public class GameFlow : MonoBehaviour
     
     public void RunnerHit()
     {
+        if (yourScore > highScore)
+            PlayerPrefs.SetInt("highScore", yourScore);
         Time.timeScale = 0;
         gameStopped = true;
     }

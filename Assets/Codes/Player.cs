@@ -71,6 +71,7 @@ public class Player : MonoBehaviour {
 		if(other.tag == "obstacle")
         {
 			Destroy(gameObject);
+			GameFlow.instance.RunnerHit();
 			GameFlow.gameStopped = true;
 			SceneManager.LoadScene(4);
 			
