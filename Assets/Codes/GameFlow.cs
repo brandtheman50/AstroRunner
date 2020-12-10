@@ -33,7 +33,7 @@ public class GameFlow : MonoBehaviour
 
     void Update()
     {
-
+        YourScoreText.text = "Your Score: " + yourScore;
     }
 
     IEnumerator spawnTile()
