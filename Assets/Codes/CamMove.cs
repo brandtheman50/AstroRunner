@@ -8,13 +8,38 @@ public class CamMove : MonoBehaviour
 
     void Start()
     {
-        
+        StartCoroutine(camSpeed());
 
     }
 
     void Update()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, camMovement);
+        if(camMovement == 10)
+        {
+            StopCoroutine(camSpeed());
+            StartCoroutine(slow());
+        }
+        else
+        {
+            StopCoroutine(slow());
+            StartCoroutine(camSpeed());
+            
+        }
         
     }
+    IEnumerator camSpeed()
+    {
+        yield return new WaitForSeconds(3);
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, camMovement);
+        
+        
+    }
+    IEnumerator slow()
+    {
+         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, camMovement);
+         yield return new WaitForSeconds(1);
+         camMovement = 20;
+        
+    }
+    
 }

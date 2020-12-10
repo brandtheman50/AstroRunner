@@ -23,12 +23,21 @@ public class GameFlow : MonoBehaviour
     public Transform oxygen;
     private Vector3 nextTank;
     private int oxygenSpawn = 0;
+    public Transform time;
+    private Vector3 nextTime;
+    private int timeSpawn = 0;
     public AudioSource clip;
+    
+    
 
     [SerializeField]
     Text YourScoreText;
     [SerializeField]
     Text OxygenLeftText;
+    [SerializeField]
+    Text timeInventoryNum;
+
+    public static int timePickUp = 0;
 
     public static int o2 = 100;
 
@@ -42,7 +51,7 @@ public class GameFlow : MonoBehaviour
 
     void Start()
     {
-
+        time.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 20);
         if (instance == null)
             instance = this;
         else if (instance != this)
@@ -53,8 +62,11 @@ public class GameFlow : MonoBehaviour
         gameStopped = false;
 
         nextTileSpawn.z = 40;
+        
+        
         StartCoroutine(spawnTile());
         StartCoroutine(DecreaseO2());
+
     }
 
 
@@ -66,13 +78,17 @@ public class GameFlow : MonoBehaviour
 
         YourScoreText.text = "Your Score: " + yourScore;
         OxygenLeftText.text = "O2: " + o2 + "%";
+        timeInventoryNum.text = "x" + timePickUp;
         if (o2 == 30 || o2 == 20 || o2 == 10)
             clip.Play();
     }
     IEnumerator DecreaseO2()
     {
-        yield return new WaitForSeconds(5);
-        o2 -= 10;
+        if (gameStopped == false)
+        {
+            yield return new WaitForSeconds(5);
+            o2 -= 10;
+        }
         StartCoroutine(DecreaseO2());
     }
     
@@ -126,7 +142,17 @@ public class GameFlow : MonoBehaviour
             Instantiate(oxygen, nextTank, oxygen.rotation);
             oxygenSpawn = 0;
         }
+        if(timeSpawn == 50)
+        {
+            nextTime.z = nextTileSpawn.z - 40;
+            nextTime.y = 1f;
+            nextTime.x = Random.Range(-2, 4);
+            Instantiate(time, nextTime, time.rotation);
+            timeSpawn = 0;
+        }
+
         oxygenSpawn += 1;
+        timeSpawn += 1;
         nextTileSpawn.z += 10;
         StartCoroutine(spawnTile());
     }
