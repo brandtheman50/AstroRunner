@@ -10,8 +10,4 @@ public class MusicLoopthruScenes : MonoBehaviour
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Music");
         DontDestroyOnLoad(this.gameObject);
     }
-    void Destry()
-    {
-        Destroy(this.gameObject);
-    }
 }
