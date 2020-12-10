@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class O2PickUp : MonoBehaviour
 {
+
     void Start()
     {
         GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 5, 0);
@@ -19,6 +20,7 @@ public class O2PickUp : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            GameFlow.o2 += 30;
             Destroy(gameObject);
         }
     }

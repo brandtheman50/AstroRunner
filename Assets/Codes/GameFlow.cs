@@ -25,6 +25,10 @@ public class GameFlow : MonoBehaviour
 
     [SerializeField]
     Text YourScoreText;
+    [SerializeField]
+    Text OxygenLeftText;
+
+    public static int o2 = 100;
 
     public static int yourScore = 0;
 
@@ -48,6 +52,7 @@ public class GameFlow : MonoBehaviour
 
         nextTileSpawn.z = 40;
         StartCoroutine(spawnTile());
+        StartCoroutine(DecreaseO2());
     }
 
 
@@ -55,10 +60,18 @@ public class GameFlow : MonoBehaviour
     {
         if (gameStopped == false)
             IncreaseYourScore();
+            
 
         YourScoreText.text = "Your Score: " + yourScore;
+        OxygenLeftText.text = "O2: " + o2 + "%";
     }
-
+    IEnumerator DecreaseO2()
+    {
+        yield return new WaitForSeconds(1);
+        o2 -= 10;
+        StartCoroutine(DecreaseO2());
+    }
+    
     IEnumerator spawnTile()
     {
         yield return new WaitForSeconds(0);
