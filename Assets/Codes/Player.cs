@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
     {
 		if(other.tag == "obstacle")
         {
-			
+			Destroy(gameObject);
 			Debug.Log("Hiit");
         }
     }
