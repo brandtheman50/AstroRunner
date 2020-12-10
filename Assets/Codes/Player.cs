@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	private float speed = 3f;
+	private float speed = 4f;
 	private Vector3 moveDir;
 	private string midJump = "n";
 
