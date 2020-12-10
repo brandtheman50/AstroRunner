@@ -7,7 +7,7 @@ public class Coin : MonoBehaviour
     
     void Start()
     {
-        
+        GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 5, 0);
     }
 
     
@@ -20,7 +20,7 @@ public class Coin : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Debug.Log("coin");
+            GameFlow.totalCoins += 1;
             Destroy(gameObject);
         }
     }

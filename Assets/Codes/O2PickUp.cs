@@ -14,6 +14,7 @@ public class O2PickUp : MonoBehaviour
     {
 
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
