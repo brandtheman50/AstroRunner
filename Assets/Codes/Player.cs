@@ -1,9 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
-	private float speed = 4f;
+	private float speed = 6f;
 	private Vector3 moveDir;
 	private string midJump = "n";
 
@@ -28,18 +29,21 @@ public class Player : MonoBehaviour {
 			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + moveDir *speed * Time.fixedDeltaTime);
 			StartCoroutine(stopXMovement());
 		}
-        
+		
 
-		}
+	}
 	
 	private void OnTriggerEnter(Collider other)
     {
 		if(other.tag == "obstacle")
         {
 			Destroy(gameObject);
-			Debug.Log("Hiit");
-        }
+			GameFlow.gameStopped = true;
+			SceneManager.LoadScene(4);
+			
+		}
     }
+	
 	IEnumerator stopXMovement()
     {
 		yield return new WaitForSeconds(1);

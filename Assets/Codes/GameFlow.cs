@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameFlow : MonoBehaviour
 {
@@ -70,8 +71,8 @@ public class GameFlow : MonoBehaviour
     }
     IEnumerator DecreaseO2()
     {
-        yield return new WaitForSeconds(1);
-        o2 -= 5;
+        yield return new WaitForSeconds(5);
+        o2 -= 10;
         StartCoroutine(DecreaseO2());
     }
     
@@ -119,7 +120,7 @@ public class GameFlow : MonoBehaviour
 
         if (oxygenSpawn == 20)
         {
-            nextTank.z = nextTileSpawn.z - 25;
+            nextTank.z = nextTileSpawn.z - 30;
             nextTank.y = 0f;
             nextTank.x = Random.Range(-2, 4);
             Instantiate(oxygen, nextTank, oxygen.rotation);
@@ -135,6 +136,8 @@ public class GameFlow : MonoBehaviour
         Time.timeScale = 0;
         gameStopped = true;
     }
+
+    
 
     void IncreaseYourScore()
     {
