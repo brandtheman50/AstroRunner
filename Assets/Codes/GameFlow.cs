@@ -61,11 +61,11 @@ public class GameFlow : MonoBehaviour
     {
         if (gameStopped == false)
             IncreaseYourScore();
-            
+
 
         YourScoreText.text = "Your Score: " + yourScore;
         OxygenLeftText.text = "O2: " + o2 + "%";
-        if (o2 == 30)
+        if (o2 == 30 || o2 == 20 || o2 == 10)
             clip.Play();
     }
     IEnumerator DecreaseO2()
