@@ -26,7 +26,7 @@ public class GameFlow : MonoBehaviour
     [SerializeField]
     Text YourScoreText;
 
-    public int yourScore = 0;
+    public static int yourScore = 0;
 
     public static bool gameStopped;
 

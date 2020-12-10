@@ -21,6 +21,7 @@ public class Coin : MonoBehaviour
         if(other.tag == "Player")
         {
             GameFlow.totalCoins += 1;
+            GameFlow.yourScore += 1;
             Destroy(gameObject);
         }
     }
