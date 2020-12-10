@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameFlow : MonoBehaviour
 {
+    public static GameFlow instance = null;
+
     public Transform tileObj;
     private Vector3 nextTileSpawn;
     public Transform fence;
@@ -18,13 +20,23 @@ public class GameFlow : MonoBehaviour
     [SerializeField]
     Text YourScoreText;
 
-    int yourScore = 0;
+    public int yourScore = 0;
+
+    public static bool gameStopped;
 
     float nextScoreIncrease = 0f;
 
     void Start()
     {
+
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
         yourScore = 0;
+
+        gameStopped = false;
 
         nextTileSpawn.z = 51;
         StartCoroutine(spawnTile());
@@ -33,6 +45,9 @@ public class GameFlow : MonoBehaviour
 
     void Update()
     {
+        if (gameStopped == false)
+            IncreaseYourScore();
+
         YourScoreText.text = "Your Score: " + yourScore;
     }
 
@@ -62,6 +77,12 @@ public class GameFlow : MonoBehaviour
         Instantiate(tube, nextTube, tube.rotation);
         StartCoroutine(spawnTile());
     }
+    public void RunnerHit()
+    {
+        Time.timeScale = 0;
+        gameStopped = true;
+    }
+
     void IncreaseYourScore()
     {
         if (Time.unscaledTime > nextScoreIncrease)

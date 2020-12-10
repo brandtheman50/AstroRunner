@@ -36,6 +36,7 @@ public class Player : MonoBehaviour {
     {
 		if(other.tag == "obstacle")
         {
+			
 			Debug.Log("Hiit");
         }
     }
