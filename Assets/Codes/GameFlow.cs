@@ -22,6 +22,7 @@ public class GameFlow : MonoBehaviour
     public Transform oxygen;
     private Vector3 nextTank;
     private int oxygenSpawn = 0;
+    public AudioSource clip;
 
     [SerializeField]
     Text YourScoreText;
@@ -64,11 +65,13 @@ public class GameFlow : MonoBehaviour
 
         YourScoreText.text = "Your Score: " + yourScore;
         OxygenLeftText.text = "O2: " + o2 + "%";
+        if (o2 == 30)
+            clip.Play();
     }
     IEnumerator DecreaseO2()
     {
         yield return new WaitForSeconds(1);
-        o2 -= 10;
+        o2 -= 5;
         StartCoroutine(DecreaseO2());
     }
     
