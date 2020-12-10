@@ -14,6 +14,10 @@ public class GameFlow : MonoBehaviour
     public Transform tube;
     private Vector3 nextTube;
 
+    Text YourScoreText;
+
+    int yourScore = 0;
+
     void Start()
     {
        
