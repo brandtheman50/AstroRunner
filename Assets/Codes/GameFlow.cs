@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameFlow : MonoBehaviour
 {
@@ -14,13 +15,15 @@ public class GameFlow : MonoBehaviour
     public Transform tube;
     private Vector3 nextTube;
 
+    [SerializeField]
     Text YourScoreText;
 
     int yourScore = 0;
 
     void Start()
     {
-       
+        yourScore = 0;
+
         nextTileSpawn.z = 51;
         StartCoroutine(spawnTile());
     }
