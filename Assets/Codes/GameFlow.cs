@@ -20,6 +20,8 @@ public class GameFlow : MonoBehaviour
 
     int yourScore = 0;
 
+    float nextScoreIncrease = 0f;
+
     void Start()
     {
         yourScore = 0;
@@ -60,5 +62,13 @@ public class GameFlow : MonoBehaviour
         Instantiate(tube, nextTube, tube.rotation);
         StartCoroutine(spawnTile());
     }
-   
+    void IncreaseYourScore()
+    {
+        if (Time.unscaledTime > nextScoreIncrease)
+        {
+            yourScore += 1;
+            nextScoreIncrease = Time.unscaledTime + 1;
+        }
+    }
+
 }
