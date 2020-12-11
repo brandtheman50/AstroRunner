@@ -55,6 +55,8 @@ public class GameFlow : MonoBehaviour
 
     void Start()
     {
+        o2 = 100;
+        
         time.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 20);
         if (instance == null)
             instance = this;
@@ -87,7 +89,19 @@ public class GameFlow : MonoBehaviour
         OxygenLeftText.text = "O2: " + o2 + "%";
         timeInventoryNum.text = "x" + timePickUp;
         if (o2 == 30 || o2 == 20 || o2 == 10)
-            clip.Play();
+        {
+            StartCoroutine(alarm());
+        }
+        else
+        {
+            StopCoroutine(alarm());
+        }
+    }
+        
+    IEnumerator alarm()
+    {
+        yield return new WaitForSeconds(3);
+        clip.Play();
     }
     IEnumerator DecreaseO2()
     {
@@ -170,6 +184,7 @@ public class GameFlow : MonoBehaviour
             PlayerPrefs.SetInt("highScore", yourScore);
         Time.timeScale = 0;
         gameStopped = true;
+        
     }
 
     

@@ -10,10 +10,8 @@ public class Player : MonoBehaviour {
 	public static int playerMov = 20;
 	public Animator anim;
 	void Start () {
-
-		StartCoroutine(playerSpeed());
 		
-
+		StartCoroutine(playerSpeed());
 	}
 	void Update()
 	{
@@ -51,29 +49,34 @@ public class Player : MonoBehaviour {
 	}
 
 	IEnumerator playerSpeed()
-    {
+	{
 		yield return new WaitForSeconds(3);
 		anim.SetTrigger("Run");
 		GetComponent<Rigidbody>().velocity = new Vector3(0, 0, playerMov);
-    }
+
+
+	}
 	IEnumerator slow()
-    {
-		
+	{
 		GetComponent<Rigidbody>().velocity = new Vector3(0, 0, playerMov);
 		yield return new WaitForSeconds(1);
 		playerMov = 20;
+
 	}
 
-		
-	
+
+
 	private void OnTriggerEnter(Collider other)
     {
-		if(other.tag == "obstacle")
+		if(other.tag == "obstacle" || (GameFlow.o2 ==0))
         {
 			Destroy(gameObject);
 			GameFlow.instance.RunnerHit();
 			GameFlow.gameStopped = true;
-			SceneManager.LoadScene(4);
+			
+			StopCoroutine(playerSpeed());
+			StopCoroutine(slow());
+			Application.LoadLevel("EndScene");
 			
 		}
     }

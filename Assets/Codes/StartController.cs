@@ -9,6 +9,10 @@ public class StartController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneNumber);
     }
+    public void LoadPlay()
+    {
+        Application.LoadLevel("PlayScene");
+    }
 
     public void quitGame()
     {

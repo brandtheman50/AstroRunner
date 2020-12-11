@@ -261,11 +261,16 @@ PrefabInstance:
     - target: {fileID: 1530596148059984551, guid: adba73585798a3745816708581f16c9a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadSceneByNumber
+      value: LoadPlay
       objectReference: {fileID: 0}
     - target: {fileID: 1530596148059984551, guid: adba73585798a3745816708581f16c9a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530596148059984551, guid: adba73585798a3745816708581f16c9a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

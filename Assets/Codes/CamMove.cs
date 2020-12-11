@@ -9,7 +9,6 @@ public class CamMove : MonoBehaviour
     void Start()
     {
         StartCoroutine(camSpeed());
-
     }
 
     void Update()
@@ -24,6 +23,10 @@ public class CamMove : MonoBehaviour
             StopCoroutine(slow());
             StartCoroutine(camSpeed());
             
+        }
+        if(GameFlow.gameStopped == true)
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
         
     }
