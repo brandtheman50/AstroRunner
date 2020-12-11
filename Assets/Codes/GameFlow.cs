@@ -100,15 +100,15 @@ public class GameFlow : MonoBehaviour
         
     IEnumerator alarm()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0);
         clip.Play();
     }
     IEnumerator DecreaseO2()
     {
         if (gameStopped == false)
         {
-            yield return new WaitForSeconds(4);
-            o2 -= 10;
+            yield return new WaitForSeconds(1);
+            o2 -= 2;
         }
         StartCoroutine(DecreaseO2());
     }
