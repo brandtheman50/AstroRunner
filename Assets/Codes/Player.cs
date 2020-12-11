@@ -4,13 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
-	private float speed = 6f;
+	private float speed = 7f;
 	private Vector3 moveDir;
 	private string midJump = "n";
-	public static int playerMov = 20;
+	public static int playerMov;
 	public Animator anim;
-	void Start () {
-		
+	void Start () 
+	{
+		playerMov = 20;
 		StartCoroutine(playerSpeed());
 	}
 	void Update()
@@ -70,7 +71,7 @@ public class Player : MonoBehaviour {
     {
 		if(other.tag == "obstacle" || (GameFlow.o2 ==0))
         {
-			Destroy(gameObject);
+			
 			GameFlow.instance.RunnerHit();
 			GameFlow.gameStopped = true;
 			

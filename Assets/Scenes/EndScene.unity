@@ -261,7 +261,7 @@ PrefabInstance:
     - target: {fileID: 1530596148059984551, guid: adba73585798a3745816708581f16c9a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadPlay
+      value: LoadSceneByNumber
       objectReference: {fileID: 0}
     - target: {fileID: 1530596148059984551, guid: adba73585798a3745816708581f16c9a,
         type: 3}
@@ -271,7 +271,7 @@ PrefabInstance:
     - target: {fileID: 1530596148059984551, guid: adba73585798a3745816708581f16c9a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adba73585798a3745816708581f16c9a, type: 3}
@@ -1025,12 +1025,12 @@ PrefabInstance:
     - target: {fileID: 1530596148059984551, guid: adba73585798a3745816708581f16c9a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: quitGame
+      value: LoadSceneByNumber
       objectReference: {fileID: 0}
     - target: {fileID: 1530596148059984551, guid: adba73585798a3745816708581f16c9a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adba73585798a3745816708581f16c9a, type: 3}
