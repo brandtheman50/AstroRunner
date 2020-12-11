@@ -611,6 +611,7 @@ RectTransform:
   - {fileID: 2142360522}
   - {fileID: 214848434}
   - {fileID: 131444635}
+  - {fileID: 662824119}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1240,6 +1241,84 @@ PrefabInstance:
     - {fileID: 114551384804589004, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
     - {fileID: 95340733316770424, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+--- !u!1 &662824118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 662824119}
+  - component: {fileID: 662824121}
+  - component: {fileID: 662824120}
+  m_Layer: 5
+  m_Name: highScore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &662824119
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662824118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -7.0000005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 256671815}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -300, y: 48}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &662824120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662824118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'High Score:'
+--- !u!222 &662824121
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662824118}
+  m_CullTransparentMesh: 0
 --- !u!1 &1489580774 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1147752367711628, guid: 2abf19653d633114faedf3b60dc6c39f,
@@ -1394,9 +1473,8 @@ MonoBehaviour:
   oxygen: {fileID: 2949604345105237426, guid: 5787920104e00f24994817f99756af47, type: 3}
   time: {fileID: 1478404893204612384, guid: e3b0db46eb48eea4ab661329401e6d04, type: 3}
   clip: {fileID: 37498198}
-  timeInventory: {fileID: 1478404893204612384, guid: e3b0db46eb48eea4ab661329401e6d04,
-    type: 3}
   YourScoreText: {fileID: 2142360523}
+  HighScoreText: {fileID: 662824120}
   OxygenLeftText: {fileID: 214848435}
   timeInventoryNum: {fileID: 131444636}
 --- !u!4 &1556092954
