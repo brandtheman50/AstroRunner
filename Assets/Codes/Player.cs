@@ -54,7 +54,7 @@ public class Player : MonoBehaviour {
 		yield return new WaitForSeconds(3);
 		anim.SetTrigger("Run");
 		GetComponent<Rigidbody>().velocity = new Vector3(0, 0, playerMov);
-
+		StartCoroutine(playerSpeed());
 
 	}
 	IEnumerator slow()
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour {
 		GetComponent<Rigidbody>().velocity = new Vector3(0, 0, playerMov);
 		yield return new WaitForSeconds(1);
 		playerMov = 20;
-
+		StartCoroutine(slow());
 	}
 
 

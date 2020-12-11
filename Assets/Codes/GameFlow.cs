@@ -107,10 +107,10 @@ public class GameFlow : MonoBehaviour
     {
         if (gameStopped == false)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(4);
             o2 -= 10;
         }
-        
+        StartCoroutine(DecreaseO2());
     }
     
     IEnumerator spawnTile()
