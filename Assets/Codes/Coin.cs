@@ -17,6 +17,7 @@ public class Coin : MonoBehaviour
         {
             GameFlow.totalCoins += 1;
             GameFlow.yourScore += 1;
+            
             Destroy(gameObject);
         }
     }

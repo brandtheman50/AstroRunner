@@ -80,6 +80,10 @@ public class Player : MonoBehaviour {
 			Application.LoadLevel("EndScene");
 			
 		}
+		if(other.tag == "coin")
+        {
+			FindObjectOfType<AudioManager>().Play("Coin");
+		}
     }
 	
 	IEnumerator stopXMovement()
