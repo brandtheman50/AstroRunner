@@ -5,6 +5,11 @@ using System;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
+    
+    void Start()
+    {
+        Play("Theme");
+    }
     void Awake()
     {
         foreach(Sound s in sounds)

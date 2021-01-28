@@ -4,45 +4,19 @@ using UnityEngine;
 
 public class CamMove : MonoBehaviour
 {
-    public static int camMovement = 20;
+    public Transform target;
 
-    void Start()
-    {
-        StartCoroutine(camSpeed());
-    }
+    float smoothSpeed = 0.125f;
+    public Vector3 offset;
 
-    void Update()
+    void FixedUpdate()
     {
-        if(camMovement == 10)
-        {
-            StopCoroutine(camSpeed());
-            StartCoroutine(slow());
-        }
-        else
-        {
-            StopCoroutine(slow());
-            StartCoroutine(camSpeed());
-            
-        }
-        if(GameFlow.gameStopped == true)
-        {
-            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        }
-        
+        Vector3 desiredPosition = target.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
+        transform.LookAt(target);
     }
-    IEnumerator camSpeed()
-    {
-        yield return new WaitForSeconds(3);
-        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, camMovement);
-        
-        
-    }
-    IEnumerator slow()
-    {
-         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, camMovement);
-         yield return new WaitForSeconds(1);
-         camMovement = 20;
-        
-    }
+    
+    
     
 }

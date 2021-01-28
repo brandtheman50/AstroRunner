@@ -31,7 +31,7 @@ public class Player : MonoBehaviour {
 		if (Input.GetKey("space") && (GameFlow.timePickUp == 1))
 		{
 			GameFlow.timePickUp = 0;
-			CamMove.camMovement = 10;
+			
 			playerMov = 10;
 		}
 		if (playerMov == 10)

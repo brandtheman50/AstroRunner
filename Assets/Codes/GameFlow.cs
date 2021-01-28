@@ -88,13 +88,13 @@ public class GameFlow : MonoBehaviour
         HighScoreText.text = "High Score: " + highScore;
         OxygenLeftText.text = "O2: " + o2 + "%";
         timeInventoryNum.text = "x" + timePickUp;
-        if(o2 <= 30)
+        if(o2 <= 0)
         {
-            FindObjectOfType<AudioManager>().Play("Alarm");
+            Death();
         }
+        
     }
         
-   
     IEnumerator DecreaseO2()
     {
         if (gameStopped == false)
@@ -105,9 +105,10 @@ public class GameFlow : MonoBehaviour
         StartCoroutine(DecreaseO2());
     }
     
+   
     IEnumerator spawnTile()
     {
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(0.5f);
         Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
         random = Random.Range(0, 5);
         if(random == 0)
@@ -188,6 +189,10 @@ public class GameFlow : MonoBehaviour
             yourScore += 1;
             nextScoreIncrease = Time.unscaledTime + 1;
         }
+    }
+    void Death()
+    {
+
     }
 
 }
