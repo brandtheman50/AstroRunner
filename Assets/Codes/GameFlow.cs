@@ -88,21 +88,13 @@ public class GameFlow : MonoBehaviour
         HighScoreText.text = "High Score: " + highScore;
         OxygenLeftText.text = "O2: " + o2 + "%";
         timeInventoryNum.text = "x" + timePickUp;
-        if (o2 == 30 || o2 == 20 || o2 == 10)
+        if(o2 <= 30)
         {
-            StartCoroutine(alarm());
-        }
-        else
-        {
-            StopCoroutine(alarm());
+            FindObjectOfType<AudioManager>().Play("Alarm");
         }
     }
         
-    IEnumerator alarm()
-    {
-        yield return new WaitForSeconds(0);
-        clip.Play();
-    }
+   
     IEnumerator DecreaseO2()
     {
         if (gameStopped == false)
