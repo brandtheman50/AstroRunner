@@ -57,11 +57,7 @@ public class GameFlow : MonoBehaviour
     {
         o2 = 100;
         
-        time.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 20);
-        if (instance == null)
-            instance = this;
-        else if (instance != this)
-            Destroy(gameObject);
+       
 
         yourScore = 0;
 
